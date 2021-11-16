@@ -84,30 +84,6 @@ public class UserInterface {
             sortBy = input.next().trim().toLowerCase().charAt(0);
         }
 
-        System.out.println("""
-                Set the sort direction:
-                a) Ascending (0-9 a-z)
-                d) Descending (9-0 z-a)
-                t) Toggle (The opposite of what it was last time)
-                """);
-
-        char ch = input.next().trim().toLowerCase().charAt(0);
-        while(ch != 'a' && ch != 'd' && ch != 't') {
-            System.out.println("Please type 'a', 'd' or 't'");
-            ch = input.next().trim().toLowerCase().charAt(0);
-        }
-
-        String direction = ch=='a'?"ASC":(ch=='d'?"DESC":"TOGGLE");
-
-        if(ch == 'n') {
-            application.sortBy("name", direction);
-        } else if(ch == 't') {
-            application.sortBy("type", direction);
-        } else if(ch == 'a') {
-            application.sortBy("age", direction);
-        }
-
-
         if(sortBy == 'n') {
             application.sortBy("name");
         } else if(sortBy == 't') {
