@@ -30,6 +30,10 @@ public class AnimalBase {
     public void sortBy(String sort) {
         if(sort == "name"){
             Collections.sort(animals, new NameComperator());
+        } else if (sort == "type"){
+            Collections.sort(animals, new TypeComperator());
+        } else if(sort == "age"){
+            Collections.sort(animals, new AgeComperator());
         }
 
         // TODO: Implement sorting!
