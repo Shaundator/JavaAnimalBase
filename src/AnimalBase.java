@@ -1,9 +1,9 @@
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class AnimalBase {
 
     private ArrayList<Animal> animals;
+    AnimalComparator comparator = new AnimalComparator();
 
     public AnimalBase() {
         animals = new ArrayList<>();
@@ -27,17 +27,12 @@ public class AnimalBase {
         return animals;
     }
 
-    public void sortBy(String sort) {
-        if(sort == "name"){
-            Collections.sort(animals, new NameComperator());
-        } else if (sort == "type"){
-            Collections.sort(animals, new TypeComperator());
-        } else if(sort == "age"){
-            Collections.sort(animals, new AgeComperator());
-        }
+    public void sortBy(String sort, String direction) {
 
-        // TODO: Implement sorting!
-        System.out.println("TODO: Sort the list of animals by: " + sort);
+        comparator.setDirection(direction);
+        comparator.setSortBy(sort);
+
+        animals.sort(comparator);
     }
 
     public void createNewAnimal(String name, String description, String type, int age) {
